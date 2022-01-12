@@ -14,8 +14,8 @@ import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 @RestController
-
 public class PostController {
+
     @Autowired
     PostRepository repository;
 
@@ -34,6 +34,7 @@ public class PostController {
         return postList;
     }
 
+
     @GetMapping("/api/posts/{id}")
     public Post getPost(@PathVariable Integer id) {
         Post returnPost = repository.getOne(id);
@@ -42,6 +43,15 @@ public class PostController {
         return returnPost;
     }
 
+
+    @PostMapping("/api/posts")
+    @ResponseStatus(HttpStatus.CREATED)
+    public Post addPost(@RequestBody Post post) {
+        repository.save(post);
+        return post;
+    }
+
+
     @PutMapping("/api/posts/{id}")
     public Post updatePost(@PathVariable int id, @RequestBody Post post) {
         Post tempPost = repository.getOne(id);
@@ -49,7 +59,8 @@ public class PostController {
         return repository.save(tempPost);
     }
 
-    @PutMapping("api/posts/upvote")
+
+    @PutMapping("/api/posts/upvote")
     public String addVote(@RequestBody Vote vote, HttpServletRequest request) {
         String returnValue = "";
 
@@ -67,8 +78,10 @@ public class PostController {
         } else {
             returnValue = "login";
         }
+
         return returnValue;
     }
+
 
     @DeleteMapping("/api/posts/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)

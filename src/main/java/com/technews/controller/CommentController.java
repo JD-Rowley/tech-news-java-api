@@ -24,7 +24,7 @@ public class CommentController {
         return repository.getOne(id);
     }
 
-    @PostMapping("/api/comments/{id}")
+    @PostMapping("/api/comments")
     @ResponseStatus(HttpStatus.CREATED)
     public Comment createComment(@RequestBody Comment comment) {
         return repository.save(comment);
