@@ -160,6 +160,7 @@ public class TechNewsController {
                 return "redirect:/login";
             }
         }
+
     }
 
     @PutMapping("/posts/upvote")
