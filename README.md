@@ -27,4 +27,6 @@
   * E-mail: jdrowley1989@gmail.com
 
   ### GitHub Repo: https://github.com/JD-Rowley/tech-news-java-api
-  
+
+Click the image to be taken to the URL of the deployed app.
+[![Sample Page Layout](./assets/img/tech-news-java.JPG)](https://cc-java-api-89.herokuapp.com/)
